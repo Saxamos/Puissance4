@@ -81,8 +81,9 @@ class Referee:
         return grid_manager.show_grid()
 
     def play(self, grid_manager, player, column):
-        if grid_manager.show_cell_state(column, 5) != '.':
-            grid_manager.change_cell_state(player, column, 4)
-        else:
-            grid_manager.change_cell_state(player, column, 5)
-        return grid_manager.show_grid()
+        for row in range(5, -1, -1):
+            if grid_manager.show_cell_state(column, row) == '.':
+                grid_manager.change_cell_state(player, column, row)
+                return True
+        return False
+
