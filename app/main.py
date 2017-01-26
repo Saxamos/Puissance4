@@ -13,6 +13,11 @@ class GridManager:
         self.grid[y][x] = player
 
 
+class Grid:
+    def __init__(self):
+        self.grid = [['.' for x in range(7)] for y in range(6)]
+
+
 class GridAnalyser:
     def __init__(self):
         return
@@ -107,26 +112,35 @@ class Referee:
 
 
 class Application:
-    def __init__(self):
+    def __init__(self, view, referee, grid_manager):
+        self.view = view
+        self.referee = referee
+        self.grid_manager = grid_manager
         return
 
     def play(self):
-        referee = Referee()
-        grid_manager = GridManager()
+        while self.referee.game_status(self.grid_manager.show_grid()) == 'continue':
+            next_player = self.referee.whose_next(self.grid_manager.show_grid())
 
-        while referee.game_status(grid_manager.show_grid()) == 'continue':
-            next_player = referee.whose_next(grid_manager.show_grid())
-
-            referee.print_grid(grid_manager)
-            print next_player + ' turn !'
+            self.referee.print_grid(self.grid_manager)
+            self.view.display(next_player + ' turn !')
             column_to_play = input('Choose a column between 1 and 7 : ') - 1
 
-            while not referee.play(grid_manager, next_player, column_to_play):
-                print 'You can\'t go there, select another column !'
+            while not self.referee.play(self.grid_manager, next_player, column_to_play):
+                self.view.display('You can\'t go there, select another column !')
                 column_to_play = input('Choose a column between 1 to 7 : ') - 1
 
-        print referee.print_grid(grid_manager)
-        print referee.game_status(grid_manager.show_grid())
+        self.view.display(self.referee.print_grid(self.grid_manager))
+        self.view.display(self.referee.game_status(self.grid_manager.show_grid()))
+
+
+class View:
+    def __init__(self):
+        return
+
+    def display(self, string):
+        print string
+
 
 
 if __name__ == '__main__':

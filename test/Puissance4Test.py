@@ -1,7 +1,9 @@
 from __future__ import absolute_import
 import unittest
+import mock
+import patch
 
-from app.main import GridManager, GridAnalyser, Referee
+from app.main import GridManager, GridAnalyser, Referee, View, Application
 
 
 class TestGridManager(unittest.TestCase):
@@ -435,6 +437,36 @@ class TestReferee(unittest.TestCase):
 
         # Then
         self.assertEqual(referee.game_status(grid), 'o win')
+
+
+class TestApplication(unittest.TestCase):
+
+    @mock.patch('app.main.View')
+    @mock.patch('app.main.GridManager')
+    @mock.patch('app.main.Referee')
+    def test_print(self, mock_referee, mock_grid_manager,  mock_view):
+        # Given
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.']]
+
+        mock_view.input.return_value = 3
+        mock_grid_manager.show_grid.side_effects = [grid, grid]
+        mock_referee.print_grid.return_value = grid
+        mock_referee.game_status(grid).return_value = 'win'
+        mock_referee.whose_next(grid).return_value = 'x'
+
+        app = Application(mock_view, mock_referee, mock_grid_manager)
+
+        # When
+        app.play()
+
+
+        # Then
+        mock_view.display.assert_called_with(grid)
 
 
 if __name__ == '__main__':
