@@ -277,7 +277,8 @@ class TestReferee(unittest.TestCase):
                        ['.', '.', '.', '.', '.', '.', '.'],
                        ['x', '.', '.', '.', '.', '.', '.']]
         # When
-        new_grid = referee.play(grid_manager, player1, 0)
+        referee.play(grid_manager, player1, 0)
+        new_grid = grid_manager.show_grid()
         # Then
         self.assertEqual(result_grid, new_grid)
 
@@ -295,11 +296,65 @@ class TestReferee(unittest.TestCase):
                        ['x', '.', '.', '.', '.', '.', '.']]
         # When
         grid_manager.change_cell_state(player1, 0, 5)
-        new_grid = referee.play(grid_manager, player2, 0)
+        referee.play(grid_manager, player2, 0)
+        new_grid = grid_manager.show_grid()
 
         # Then
         self.assertEqual(result_grid, new_grid)
 
+    def test_should_add_a_third_coin_and_return_the_grid(self):
+        # Given
+        referee = Referee()
+        grid_manager = GridManager()
+        player1 = Player(grid_manager, 'x')
+        player2 = Player(grid_manager, 'o')
+        result_grid = [['.', '.', '.', '.', '.', '.', '.'],
+                       ['.', '.', '.', '.', '.', '.', '.'],
+                       ['.', '.', '.', '.', '.', '.', '.'],
+                       ['x', '.', '.', '.', '.', '.', '.'],
+                       ['o', '.', '.', '.', '.', '.', '.'],
+                       ['x', '.', '.', '.', '.', '.', '.']]
+        # When
+        grid_manager.change_cell_state(player1, 0, 5)
+        grid_manager.change_cell_state(player2, 0, 4)
+        referee.play(grid_manager, player1, 0)
+        new_grid = grid_manager.show_grid()
 
+        # Then
+        self.assertEqual(result_grid, new_grid)
+
+    def test_should_add_a_third_coin_and_return_true_when_column_is_not_full(self):
+        # Given
+        referee = Referee()
+        grid_manager = GridManager()
+        player1 = Player(grid_manager, 'x')
+        player2 = Player(grid_manager, 'o')
+        
+        # When
+        grid_manager.change_cell_state(player1, 0, 5)
+        grid_manager.change_cell_state(player2, 0, 4)
+        returned_boolean = referee.play(grid_manager, player1, 0)
+
+        # Then
+        self.assertEqual(True, returned_boolean)
+
+    def test_should_add_a_third_coin_and_return_false_when_column_is_full(self):
+        # Given
+        referee = Referee()
+        grid_manager = GridManager()
+        player1 = Player(grid_manager, 'x')
+        player2 = Player(grid_manager, 'o')
+        
+        # When
+        grid_manager.change_cell_state(player1, 0, 5)
+        grid_manager.change_cell_state(player2, 0, 4)
+        grid_manager.change_cell_state(player2, 0, 3)
+        grid_manager.change_cell_state(player2, 0, 2)
+        grid_manager.change_cell_state(player2, 0, 1)
+        grid_manager.change_cell_state(player2, 0, 0)
+        returned_boolean = referee.play(grid_manager, player1, 0)
+
+        # Then
+        self.assertEqual(False, returned_boolean)
 if __name__ == '__main__':
     unittest.main()

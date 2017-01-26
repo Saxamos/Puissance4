@@ -79,10 +79,43 @@ class Referee:
 
     def display_grid(self, grid_manager):
         return grid_manager.show_grid()
+    
+    def print_grid(self, grid_manager):
+        to_print = ''
+        grid = grid_manager.show_grid()
+        for row in range(6):
+            for column in range(7):
+                to_print += grid[row][column]
+            to_print += '\t\n'
+        print to_print
 
     def play(self, grid_manager, player, column):
-        if grid_manager.show_cell_state(column, 5) != '.':
-            grid_manager.change_cell_state(player, column, 4)
-        else:
-            grid_manager.change_cell_state(player, column, 5)
-        return grid_manager.show_grid()
+        for row in range(5, -1, -1):
+            if grid_manager.show_cell_state(column, row) == '.':
+                grid_manager.change_cell_state(player, column, row)
+                return True
+        return False
+
+def main():
+    referee = Referee()
+    grid_manager = GridManager()
+    grid_analyser = GridAnalyser()
+    playerX = Player(grid_manager, 'x')
+    playerO = Player(grid_manager, 'o')
+    last_player = 'x'
+    while grid_analyser.analyse(grid_manager.show_grid()) != '':
+        next_player = referee.whose_next(grid_manager.show_grid())
+        next_player_instance = playerX if next_player == 'x' else playerO
+        print next_player_instance.name
+
+        referee.print_grid(grid_manager)
+        print next_player + ' to play !'
+        column_to_play = input('Choose a column between 1 to 7 : ')
+
+        while not referee.play(grid_manager, next_player_instance, column_to_play):    
+            print 'You can\'t go there, select another column !'
+            column_to_play = input('Choose a column between 1 to 7 : ')
+
+
+if __name__ == '__main__':
+    main()
