@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 import unittest
 
-from app.main import GridManager, Player, GridAnalyser, Referee
+from app.main import GridManager, GridAnalyser, Referee
 
 
 class TestGridManager(unittest.TestCase):
@@ -56,7 +56,7 @@ class TestGridManager(unittest.TestCase):
         # Given
         grid_manager = GridManager()
         cell_played = 'o'
-        player = Player(grid_manager, 'o')
+        player = 'o'
 
         # When
         grid_manager.change_cell_state(player, 4, 2)
@@ -64,42 +64,6 @@ class TestGridManager(unittest.TestCase):
 
         # Then
         self.assertEqual(cell_state, cell_played)
-
-'''    def test_should_return_0x5_coordinates_after_played_in_col_0_and_empty_grid(self):
-        # Given
-        grid_manager = GridManager()
-        player = Player(grid_manager, 'o')
-        result_cell_location = (0, 5)
-
-        # When
-        cell_location = player.play(0)
-
-        # Then
-        self.assertEqual(cell_location, result_cell_location)
-'''
-
-class TestPlayer(unittest.TestCase):
-    def test_should_raise_error_if_play_outside_column_grid(self):
-        # Given
-        grid_manager = GridManager()
-        player = Player(grid_manager, 'x')
-
-        # When
-        choice = 7
-
-        # Then
-        self.assertRaises(ValueError, player.play, choice)
-
-    def test_should_raise_error_if_play_in_full_column(self):
-        # Given
-        grid_manager = GridManager()
-        player = Player(grid_manager, 'x')
-
-        # When
-        grid_manager.change_cell_state(player, 0, 0)
-
-        # Then
-        self.assertRaises(ValueError, player.play, 0)
 
 
 class TestGridAnalyser(unittest.TestCase):
@@ -160,7 +124,7 @@ class TestGridAnalyser(unittest.TestCase):
         # Then
         self.assertEqual("win", grid_analyser.analyse(grid))
 
-    def test_should_stop_and_say_win_case_3(self):
+    def test_should_stop_and_say_win_case_4(self):
         # Given
         grid_analyser = GridAnalyser()
 
@@ -171,6 +135,76 @@ class TestGridAnalyser(unittest.TestCase):
                 ['x', 'o', 'o', '.', '.', '.', '.'],
                 ['x', 'x', 'o', 'x', '.', '.', '.'],
                 ['o', 'x', 'o', 'o', '.', '.', '.']]
+        # Then
+        self.assertEqual("win", grid_analyser.analyse(grid))
+
+    def test_should_return_draw(self):
+        # Given
+        grid_analyser = GridAnalyser()
+
+        # When
+        grid = [['o', 'o', 'x', 'o', 'o', 'o', 'x'],
+                ['x', 'x', 'o', 'x', 'x', 'x', 'o'],
+                ['o', 'o', 'o', 'x', 'o', 'o', 'x'],
+                ['x', 'o', 'x', 'o', 'x', 'x', 'x'],
+                ['o', 'o', 'o', 'x', 'o', 'x', 'o'],
+                ['x', 'x', 'o', 'o', 'x', 'o', 'x']]
+        # Then
+        self.assertEqual("draw", grid_analyser.analyse(grid))
+
+    def test_should_return_win_with_high_diagonal1(self):
+        # Given
+        grid_analyser = GridAnalyser()
+
+        # When
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', 'x', '.', '.', '.'],
+                ['.', '.', 'x', 'x', '.', '.', '.'],
+                ['.', 'x', 'o', 'o', '.', '.', '.'],
+                ['x', 'x', 'o', 'o', 'o', '.', '.']]
+        # Then
+        self.assertEqual("win", grid_analyser.analyse(grid))
+
+    def test_should_return_win_with_high_diagonal2(self):
+        # Given
+        grid_analyser = GridAnalyser()
+
+        # When
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', 'x', 'x', '.', '.'],
+                ['.', '.', 'x', 'o', 'x', '.', '.'],
+                ['.', 'x', 'x', 'o', 'o', '.', '.'],
+                ['x', 'x', 'o', 'o', 'x', '.', '.'],
+                ['o', 'x', 'o', 'o', 'o', '.', '.']]
+        # Then
+        self.assertEqual("win", grid_analyser.analyse(grid))
+
+    def test_should_return_win_with_high_diagonal3(self):
+        # Given
+        grid_analyser = GridAnalyser()
+
+        # When
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', 'o', '.', '.', '.'],
+                ['.', '.', 'o', 'x', '.', '.', '.'],
+                ['.', 'o', 'x', 'o', '.', '.', '.'],
+                ['o', 'x', 'x', 'x', '.', '.', '.']]
+        # Then
+        self.assertEqual("win", grid_analyser.analyse(grid))
+
+    def test_should_return_win_with_high_diagonal4(self):
+        # Given
+        grid_analyser = GridAnalyser()
+
+        # When
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', 'o', '.', '.'],
+                ['.', '.', 'x', 'o', 'o', '.', '.'],
+                ['x', 'x', 'o', 'o', 'x', '.', '.'],
+                ['o', 'o', 'x', 'x', 'x', '.', '.']]
         # Then
         self.assertEqual("win", grid_analyser.analyse(grid))
 
@@ -250,8 +284,8 @@ class TestReferee(unittest.TestCase):
         # Given
         referee = Referee()
         grid_manager = GridManager()
-        player1 = Player(grid_manager, 'x')
-        player2 = Player(grid_manager, 'o')
+        player1 = 'x'
+        player2 = 'o'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
@@ -269,7 +303,7 @@ class TestReferee(unittest.TestCase):
         # Given
         referee = Referee()
         grid_manager = GridManager()
-        player1 = Player(grid_manager, 'x')
+        player1 = 'x'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
@@ -286,8 +320,8 @@ class TestReferee(unittest.TestCase):
         # Given
         referee = Referee()
         grid_manager = GridManager()
-        player1 = Player(grid_manager, 'x')
-        player2 = Player(grid_manager, 'o')
+        player1 = 'x'
+        player2 = 'o'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
@@ -306,8 +340,8 @@ class TestReferee(unittest.TestCase):
         # Given
         referee = Referee()
         grid_manager = GridManager()
-        player1 = Player(grid_manager, 'x')
-        player2 = Player(grid_manager, 'o')
+        player1 = 'x'
+        player2 = 'o'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
                        ['.', '.', '.', '.', '.', '.', '.'],
@@ -327,8 +361,8 @@ class TestReferee(unittest.TestCase):
         # Given
         referee = Referee()
         grid_manager = GridManager()
-        player1 = Player(grid_manager, 'x')
-        player2 = Player(grid_manager, 'o')
+        player1 = 'x'
+        player2 = 'o'
         
         # When
         grid_manager.change_cell_state(player1, 0, 5)
@@ -342,8 +376,8 @@ class TestReferee(unittest.TestCase):
         # Given
         referee = Referee()
         grid_manager = GridManager()
-        player1 = Player(grid_manager, 'x')
-        player2 = Player(grid_manager, 'o')
+        player1 = 'x'
+        player2 = 'o'
         
         # When
         grid_manager.change_cell_state(player1, 0, 5)
@@ -356,5 +390,52 @@ class TestReferee(unittest.TestCase):
 
         # Then
         self.assertEqual(False, returned_boolean)
+
+    def test_should_say_continue(self):
+        # Given
+        referee = Referee()
+        analyser = GridAnalyser()
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['x', '.', '.', '.', '.', '.', '.']]
+        # When
+
+        # Then
+        self.assertEqual(referee.game_status(grid), 'continue')
+
+    def test_should_say_x_win(self):
+        # Given
+        referee = Referee()
+        analyser = GridAnalyser()
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['o', '.', '.', '.', '.', '.', '.'],
+                ['o', 'o', '.', '.', '.', '.', '.'],
+                ['x', 'x', 'x', 'x', '.', '.', '.']]
+        # When
+
+        # Then
+        self.assertEqual(referee.game_status(grid), 'x win')
+
+    def test_should_say_o_win(self):
+        # Given
+        referee = Referee()
+        analyser = GridAnalyser()
+        grid = [['.', '.', '.', '.', '.', '.', '.'],
+                ['.', '.', '.', '.', '.', '.', '.'],
+                ['.', 'o', '.', '.', '.', '.', '.'],
+                ['.', 'o', '.', '.', '.', '.', '.'],
+                ['x', 'o', 'x', '.', '.', '.', '.'],
+                ['x', 'o', 'x', '.', '.', '.', '.']]
+        # When
+
+        # Then
+        self.assertEqual(referee.game_status(grid), 'o win')
+
+
 if __name__ == '__main__':
     unittest.main()

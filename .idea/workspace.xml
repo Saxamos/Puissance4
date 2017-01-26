@@ -18,13 +18,19 @@
       <file leaf-file-name="Puissance4Test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="267" column="8" lean-forward="false" selection-start-line="267" selection-start-column="8" selection-end-line="267" selection-end-column="8" />
+            <state relative-caret-position="215">
+              <caret line="196" column="50" lean-forward="false" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#1800#2160#1" expanded="false" />
-                <element signature="e#2819#5429#0" expanded="false" />
-                <element signature="e#2969#3271#0" expanded="false" />
+                <element signature="e#160#1768#0" expanded="false" />
+                <element signature="e#1890#2352#0" expanded="false" />
+                <element signature="e#1968#2270#0" expanded="false" />
+                <element signature="e#2413#2869#0" expanded="false" />
+                <element signature="e#2938#3394#0" expanded="false" />
+                <element signature="e#3455#3911#0" expanded="false" />
+                <element signature="e#3972#4428#0" expanded="false" />
+                <element signature="e#6050#6506#0" expanded="false" />
+                <element signature="e#7075#15391#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -33,9 +39,12 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="86" column="60" lean-forward="false" selection-start-line="86" selection-start-column="60" selection-end-line="86" selection-end-column="60" />
-              <folding />
+            <state relative-caret-position="403">
+              <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+              <folding>
+                <element signature="e#24#308#0" expanded="false" />
+                <element signature="e#1911#3303#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,15 +61,20 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>0</find>
-      <find>x</find>
       <find>o</find>
       <find>whose_turn</find>
+      <find>Player</find>
+      <find>player</find>
+      <find>\</find>
+      <find>game_s</find>
+      <find>x</find>
     </findStrings>
     <replaceStrings>
       <replace>'.'</replace>
-      <replace>.</replace>
       <replace>x</replace>
       <replace>whose_next</replace>
+      <replace>.</replace>
+      <replace>o</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -128,6 +142,9 @@
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Python tests.Unittests in Puissance4">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -293,6 +310,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b7c977c5-7dab-49a7-a28f-bc60fe0c34d9" name="Default" comment="" />
@@ -304,34 +324,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 28m 20s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 12m 05s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 28m 24s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 19m 24s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 28m 51s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 19m 58s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 29m 53s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 20m 43s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 30m 15s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 22m 14s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 31m 20s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 28m 31s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 31m 53s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 40m 06s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 32m 20s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 40m 50s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 32m 39s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 11h 48m 24s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.25 at 17h 33m 59s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 14h 04m 30s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
   </component>
@@ -366,16 +386,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test/Puissance4Test.py</url>
-          <line>120</line>
+          <line>84</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test/Puissance4Test.py</url>
-          <line>105</line>
+          <line>69</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -398,22 +418,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="267" column="8" lean-forward="false" selection-start-line="267" selection-start-column="8" selection-end-line="267" selection-end-column="8" />
+        <state relative-caret-position="215">
+          <caret line="196" column="50" lean-forward="false" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#1800#2160#1" expanded="false" />
-            <element signature="e#2819#5429#0" expanded="false" />
-            <element signature="e#2969#3271#0" expanded="false" />
+            <element signature="e#160#1768#0" expanded="false" />
+            <element signature="e#1890#2352#0" expanded="false" />
+            <element signature="e#1968#2270#0" expanded="false" />
+            <element signature="e#2413#2869#0" expanded="false" />
+            <element signature="e#2938#3394#0" expanded="false" />
+            <element signature="e#3455#3911#0" expanded="false" />
+            <element signature="e#3972#4428#0" expanded="false" />
+            <element signature="e#6050#6506#0" expanded="false" />
+            <element signature="e#7075#15391#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="86" column="60" lean-forward="false" selection-start-line="86" selection-start-column="60" selection-end-line="86" selection-end-column="60" />
-          <folding />
+        <state relative-caret-position="403">
+          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+          <folding>
+            <element signature="e#24#308#0" expanded="false" />
+            <element signature="e#1911#3303#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

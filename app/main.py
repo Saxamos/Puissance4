@@ -9,23 +9,8 @@ class GridManager:
     def show_cell_state(self, x, y):
         return self.grid[y][x]
 
-    def change_cell_state(self, Player, x, y):
-        self.grid[y][x] = Player.name
-
-
-class Player:
-    def __init__(self, grid_manager, name):
-        self.name = name
-        self.grid_manager = grid_manager
-
-    def play(self, x):
-        try:
-            if self.grid_manager.show_cell_state(x, 0) == '.':
-                print self.grid_manager.show_grid()
-            else:
-                raise ValueError
-        except IndexError:
-            raise ValueError('Index out of columns')
+    def change_cell_state(self, player, x, y):
+        self.grid[y][x] = player
 
 
 class GridAnalyser:
@@ -39,8 +24,13 @@ class GridAnalyser:
         for x in range(7):
             if self.analyse_col(grid, x):
                 return 'win'
-        else:
-            return "continue"
+        if self.analyse_high_diag(grid):
+            return 'win'
+        for x in range(7):
+            for y in range(6):
+                if grid[y][x] == '.':
+                    return 'continue'
+        return 'draw'
 
     def analyse_row(self, grid, y):
         for x in range(4):
@@ -60,18 +50,26 @@ class GridAnalyser:
                 if (same_in_a_col['x'] == 4) | (same_in_a_col['o'] == 4):
                     return True
 
+    def analyse_high_diag(self, grid):
+        for i in range(3):
+            for j in range(4):
+                if (grid[5-i][0+j] == 'x') & (grid[4-i][1+j] == 'x') & (grid[3-i][2+j] == 'x') & (grid[2-i][3+j] == 'x'):
+                    return True
+                if (grid[5-i][0+j] == 'o') & (grid[4-i][1+j] == 'o') & (grid[3-i][2+j] == 'o') & (grid[2-i][3+j] == 'o'):
+                    return True
+
 
 class Referee:
     def __init__(self):
         return
 
     def whose_next(self, grid):
-        number_of_x = 0
+        number_of_coins = 0
         for x in range(7):
             for y in range(6):
-                if grid[y][x] == 'x':
-                    number_of_x += 1
-        return 'o' if (number_of_x % 2 == 1) else 'x'
+                if grid[y][x] != '.':
+                    number_of_coins += 1
+        return 'o' if (number_of_coins % 2 == 1) else 'x'
 
     def start_game(self):
         grid_manager = GridManager()
@@ -90,32 +88,47 @@ class Referee:
         print to_print
 
     def play(self, grid_manager, player, column):
+        if column > len(grid_manager.show_grid()[0]) or column < 0:
+            return False
         for row in range(5, -1, -1):
             if grid_manager.show_cell_state(column, row) == '.':
                 grid_manager.change_cell_state(player, column, row)
                 return True
         return False
 
-def main():
-    referee = Referee()
-    grid_manager = GridManager()
-    grid_analyser = GridAnalyser()
-    playerX = Player(grid_manager, 'x')
-    playerO = Player(grid_manager, 'o')
-    last_player = 'x'
-    while grid_analyser.analyse(grid_manager.show_grid()) != '':
-        next_player = referee.whose_next(grid_manager.show_grid())
-        next_player_instance = playerX if next_player == 'x' else playerO
-        print next_player_instance.name
+    def game_status(self, grid):
+        analyser = GridAnalyser()
+        whose_next = self.whose_next(grid)
+        result = analyser.analyse(grid)
+        if result == 'win':
+            return 'o win' if whose_next == 'x' else 'x win'
+        else:
+            return result
 
-        referee.print_grid(grid_manager)
-        print next_player + ' to play !'
-        column_to_play = input('Choose a column between 1 to 7 : ')
 
-        while not referee.play(grid_manager, next_player_instance, column_to_play):    
-            print 'You can\'t go there, select another column !'
-            column_to_play = input('Choose a column between 1 to 7 : ')
+class Application:
+    def __init__(self):
+        return
+
+    def play(self):
+        referee = Referee()
+        grid_manager = GridManager()
+
+        while referee.game_status(grid_manager.show_grid()) == 'continue':
+            next_player = referee.whose_next(grid_manager.show_grid())
+
+            referee.print_grid(grid_manager)
+            print next_player + ' turn !'
+            column_to_play = input('Choose a column between 1 and 7 : ') - 1
+
+            while not referee.play(grid_manager, next_player, column_to_play):
+                print 'You can\'t go there, select another column !'
+                column_to_play = input('Choose a column between 1 to 7 : ') - 1
+
+        print referee.print_grid(grid_manager)
+        print referee.game_status(grid_manager.show_grid())
 
 
 if __name__ == '__main__':
-    main()
+    app = Application()
+    app.play()
