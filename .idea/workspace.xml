@@ -18,34 +18,43 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Puissance4Test.py" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Puissance4Test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="456" column="62" lean-forward="false" selection-start-line="456" selection-start-column="62" selection-end-line="456" selection-end-column="62" />
+            <state relative-caret-position="243">
+              <caret line="284" column="8" lean-forward="false" selection-start-line="284" selection-start-column="8" selection-end-line="284" selection-end-column="8" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#1862#7074#0" expanded="false" />
-                <element signature="e#1934#2396#0" expanded="false" />
-                <element signature="e#2012#2314#0" expanded="false" />
-                <element signature="e#2457#2913#0" expanded="false" />
-                <element signature="e#2982#3438#0" expanded="false" />
-                <element signature="e#3499#3955#0" expanded="false" />
-                <element signature="e#4016#4472#0" expanded="false" />
-                <element signature="e#6094#6550#0" expanded="false" />
-                <element signature="e#7119#15435#0" expanded="false" />
-                <element signature="e#7182#7622#0" expanded="false" />
+                <element signature="e#177#1871#0" expanded="false" />
+                <element signature="e#228#333#0" expanded="false" />
+                <element signature="e#390#498#0" expanded="false" />
+                <element signature="e#557#1033#0" expanded="false" />
+                <element signature="e#1092#1274#0" expanded="false" />
+                <element signature="e#1329#1871#0" expanded="false" />
+                <element signature="e#1921#7133#0" expanded="false" />
+                <element signature="e#1993#2455#0" expanded="false" />
+                <element signature="e#2071#2373#0" expanded="false" />
+                <element signature="e#2516#2972#0" expanded="false" />
+                <element signature="e#3041#3497#0" expanded="false" />
+                <element signature="e#3558#4014#0" expanded="false" />
+                <element signature="e#4075#4531#0" expanded="false" />
+                <element signature="e#6153#6609#0" expanded="false" />
+                <element signature="e#7241#7681#0" expanded="false" />
+                <element signature="e#7755#8195#0" expanded="false" />
+                <element signature="e#8269#8709#0" expanded="false" />
+                <element signature="e#8786#9226#0" expanded="false" />
+                <element signature="e#9274#9711#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -73,6 +82,9 @@
       <find>game_stat</find>
       <find>show_gri</find>
       <find>show_grid</find>
+      <find>show_cell_state</find>
+      <find>change_cell_state</find>
+      <find>gri</find>
     </findStrings>
     <replaceStrings>
       <replace>'.'</replace>
@@ -90,8 +102,8 @@
       <list>
         <option value="$PROJECT_DIR$/test/__init__.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
-        <option value="$PROJECT_DIR$/test/Puissance4Test.py" />
         <option value="$PROJECT_DIR$/app/main.py" />
+        <option value="$PROJECT_DIR$/test/Puissance4Test.py" />
       </list>
     </option>
   </component>
@@ -118,7 +130,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -151,11 +163,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python tests.Unittests in Puissance4">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -335,34 +348,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 15h 57m 36s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 55m 10s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 15h 58m 14s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 55m 46s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 15h 58m 32s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 55m 57s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 15h 59m 36s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 56m 27s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 16h 00m 35s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 57m 03s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 16h 00m 55s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 57m 19s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 16h 01m 26s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 13h 58m 45s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 16h 03m 10s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 14h 00m 31s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 16h 05m 18s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 14h 01m 42s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_Puissance4 - 2017.01.26 at 16h 11m 39s.xml">
+    <history-entry file="Unittests_in_Puissance4 - 2017.01.30 at 14h 01m 59s.xml">
       <configuration name="Unittests in Puissance4" configurationId="tests" />
     </history-entry>
   </component>
@@ -375,7 +388,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3644647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3405467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -411,6 +424,80 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="443" column="12" lean-forward="false" selection-start-line="443" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#177#1871#0" expanded="false" />
+            <element signature="e#228#333#0" expanded="false" />
+            <element signature="e#390#498#0" expanded="false" />
+            <element signature="e#557#1033#0" expanded="false" />
+            <element signature="e#1092#1274#0" expanded="false" />
+            <element signature="e#1329#1871#0" expanded="false" />
+            <element signature="e#1921#7133#0" expanded="false" />
+            <element signature="e#1993#2455#0" expanded="false" />
+            <element signature="e#2071#2373#0" expanded="false" />
+            <element signature="e#2516#2972#0" expanded="false" />
+            <element signature="e#3041#3497#0" expanded="false" />
+            <element signature="e#3558#4014#0" expanded="false" />
+            <element signature="e#4075#4531#0" expanded="false" />
+            <element signature="e#6153#6609#0" expanded="false" />
+            <element signature="e#7241#7681#0" expanded="false" />
+            <element signature="e#7755#8195#0" expanded="false" />
+            <element signature="e#8269#8709#0" expanded="false" />
+            <element signature="e#8786#9226#0" expanded="false" />
+            <element signature="e#9274#9711#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#177#1871#0" expanded="false" />
+            <element signature="e#228#333#0" expanded="false" />
+            <element signature="e#390#498#0" expanded="false" />
+            <element signature="e#557#1033#0" expanded="false" />
+            <element signature="e#1092#1274#0" expanded="false" />
+            <element signature="e#1329#1871#0" expanded="false" />
+            <element signature="e#1921#7133#0" expanded="false" />
+            <element signature="e#1993#2455#0" expanded="false" />
+            <element signature="e#2071#2373#0" expanded="false" />
+            <element signature="e#2516#2972#0" expanded="false" />
+            <element signature="e#3041#3497#0" expanded="false" />
+            <element signature="e#3558#4014#0" expanded="false" />
+            <element signature="e#4075#4531#0" expanded="false" />
+            <element signature="e#6153#6609#0" expanded="false" />
+            <element signature="e#7241#7681#0" expanded="false" />
+            <element signature="e#7755#8195#0" expanded="false" />
+            <element signature="e#8269#8709#0" expanded="false" />
+            <element signature="e#8786#9226#0" expanded="false" />
+            <element signature="e#9274#9711#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -433,31 +520,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
+    <entry file="file://$PROJECT_DIR$/app/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="456" column="62" lean-forward="false" selection-start-line="456" selection-start-column="62" selection-end-line="456" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#1862#7074#0" expanded="false" />
-            <element signature="e#1934#2396#0" expanded="false" />
-            <element signature="e#2012#2314#0" expanded="false" />
-            <element signature="e#2457#2913#0" expanded="false" />
-            <element signature="e#2982#3438#0" expanded="false" />
-            <element signature="e#3499#3955#0" expanded="false" />
-            <element signature="e#4016#4472#0" expanded="false" />
-            <element signature="e#6094#6550#0" expanded="false" />
-            <element signature="e#7119#15435#0" expanded="false" />
-            <element signature="e#7182#7622#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/main.py">
+    <entry file="file://$PROJECT_DIR$/test/Puissance4Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="243">
+          <caret line="284" column="8" lean-forward="false" selection-start-line="284" selection-start-column="8" selection-end-line="284" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#177#1871#0" expanded="false" />
+            <element signature="e#228#333#0" expanded="false" />
+            <element signature="e#390#498#0" expanded="false" />
+            <element signature="e#557#1033#0" expanded="false" />
+            <element signature="e#1092#1274#0" expanded="false" />
+            <element signature="e#1329#1871#0" expanded="false" />
+            <element signature="e#1921#7133#0" expanded="false" />
+            <element signature="e#1993#2455#0" expanded="false" />
+            <element signature="e#2071#2373#0" expanded="false" />
+            <element signature="e#2516#2972#0" expanded="false" />
+            <element signature="e#3041#3497#0" expanded="false" />
+            <element signature="e#3558#4014#0" expanded="false" />
+            <element signature="e#4075#4531#0" expanded="false" />
+            <element signature="e#6153#6609#0" expanded="false" />
+            <element signature="e#7241#7681#0" expanded="false" />
+            <element signature="e#7755#8195#0" expanded="false" />
+            <element signature="e#8269#8709#0" expanded="false" />
+            <element signature="e#8786#9226#0" expanded="false" />
+            <element signature="e#9274#9711#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

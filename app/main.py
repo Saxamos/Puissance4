@@ -1,18 +1,4 @@
 
-class GridManager:
-    def __init__(self):
-        self.grid = [['.' for x in range(7)] for y in range(6)]
-
-    def show_grid(self):
-        return self.grid
-
-    def show_cell_state(self, x, y):
-        return self.grid[y][x]
-
-    def change_cell_state(self, player, x, y):
-        self.grid[y][x] = player
-
-
 class Grid:
     def __init__(self):
         self.grid = [['.' for x in range(7)] for y in range(6)]
@@ -77,27 +63,26 @@ class Referee:
         return 'o' if (number_of_coins % 2 == 1) else 'x'
 
     def start_game(self):
-        grid_manager = GridManager()
-        return grid_manager.show_grid()
+        grid = Grid()
+        return grid.grid
 
-    def display_grid(self, grid_manager):
-        return grid_manager.show_grid()
+    def display_grid(self, grid):
+        return grid
     
-    def print_grid(self, grid_manager):
+    def print_grid(self, grid):
         to_print = ''
-        grid = grid_manager.show_grid()
         for row in range(6):
             for column in range(7):
                 to_print += grid[row][column]
             to_print += '\t\n'
         print to_print
 
-    def play(self, grid_manager, player, column):
-        if column > len(grid_manager.show_grid()[0]) or column < 0:
+    def play(self, grid, player, column):
+        if column > len(grid[0]) or column < 0:
             return False
         for row in range(5, -1, -1):
-            if grid_manager.show_cell_state(column, row) == '.':
-                grid_manager.change_cell_state(player, column, row)
+            if grid[row][column] == '.':
+                grid[row][column] = player
                 return True
         return False
 
@@ -112,26 +97,26 @@ class Referee:
 
 
 class Application:
-    def __init__(self, view, referee, grid_manager):
+    def __init__(self, view, referee, grid):
         self.view = view
         self.referee = referee
-        self.grid_manager = grid_manager
+        self.grid = grid
         return
 
     def play(self):
-        while self.referee.game_status(self.grid_manager.show_grid()) == 'continue':
-            next_player = self.referee.whose_next(self.grid_manager.show_grid())
+        while self.referee.game_status(self.grid) == 'continue':
+            next_player = self.referee.whose_next(self.grid)
 
-            self.referee.print_grid(self.grid_manager)
+            self.referee.print_grid(self.grid)
             self.view.display(next_player + ' turn !')
             column_to_play = input('Choose a column between 1 and 7 : ') - 1
 
-            while not self.referee.play(self.grid_manager, next_player, column_to_play):
+            while not self.referee.play(self.grid, next_player, column_to_play):
                 self.view.display('You can\'t go there, select another column !')
                 column_to_play = input('Choose a column between 1 to 7 : ') - 1
 
-        self.view.display(self.referee.print_grid(self.grid_manager))
-        self.view.display(self.referee.game_status(self.grid_manager.show_grid()))
+        self.view.display(self.referee.print_grid(self.grid))
+        self.view.display(self.referee.game_status(self.grid))
 
 
 class View:
