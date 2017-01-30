@@ -1,6 +1,5 @@
 from __future__ import absolute_import
 import unittest
-import mock
 
 from app.main import Grid, GridAnalyser, Referee, View, Application
 
@@ -285,7 +284,7 @@ class TestReferee(unittest.TestCase):
     def test_should_display_grid(self):
         # Given
         referee = Referee()
-        grid = Grid()
+        grid = Grid().grid
         player1 = 'x'
         player2 = 'o'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
@@ -295,8 +294,8 @@ class TestReferee(unittest.TestCase):
                        ['.', '.', '.', '.', '.', '.', '.'],
                        ['x', 'o', '.', '.', '.', '.', '.']]
         # When
-        grid.grid[5][0] =  player1
-        grid.grid[5][1] =  player2
+        grid[5][0] =  player1
+        grid[5][1] =  player2
 
         # Then
         self.assertEqual(result_grid, referee.display_grid(grid))
@@ -322,7 +321,7 @@ class TestReferee(unittest.TestCase):
     def test_should_add_a_second_coin_and_return_the_grid(self):
         # Given
         referee = Referee()
-        grid_manager = GridManager()
+        grid = Grid().grid
         player1 = 'x'
         player2 = 'o'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
@@ -332,17 +331,16 @@ class TestReferee(unittest.TestCase):
                        ['o', '.', '.', '.', '.', '.', '.'],
                        ['x', '.', '.', '.', '.', '.', '.']]
         # When
-        grid_manager.change_cell_state(player1, 0, 5)
-        referee.play(grid_manager, player2, 0)
-        new_grid = grid_manager.show_grid()
+        grid[5][0] = player1
+        referee.play(grid, player2, 0)
 
         # Then
-        self.assertEqual(result_grid, new_grid)
+        self.assertEqual(result_grid, grid)
 
     def test_should_add_a_third_coin_and_return_the_grid(self):
         # Given
         referee = Referee()
-        grid_manager = GridManager()
+        grid = Grid().grid
         player1 = 'x'
         player2 = 'o'
         result_grid = [['.', '.', '.', '.', '.', '.', '.'],
@@ -352,25 +350,24 @@ class TestReferee(unittest.TestCase):
                        ['o', '.', '.', '.', '.', '.', '.'],
                        ['x', '.', '.', '.', '.', '.', '.']]
         # When
-        grid_manager.change_cell_state(player1, 0, 5)
-        grid_manager.change_cell_state(player2, 0, 4)
-        referee.play(grid_manager, player1, 0)
-        new_grid = grid_manager.show_grid()
+        grid[5][0] =  player1
+        grid[4][0] =  player2
+        referee.play(grid, player1, 0)
 
         # Then
-        self.assertEqual(result_grid, new_grid)
+        self.assertEqual(result_grid, grid)
 
     def test_should_add_a_third_coin_and_return_true_when_column_is_not_full(self):
         # Given
         referee = Referee()
-        grid_manager = GridManager()
+        grid = Grid().grid
         player1 = 'x'
         player2 = 'o'
         
         # When
-        grid_manager.change_cell_state(player1, 0, 5)
-        grid_manager.change_cell_state(player2, 0, 4)
-        returned_boolean = referee.play(grid_manager, player1, 0)
+        grid[5][0] = player1
+        grid[4][0] = player2
+        returned_boolean = referee.play(grid, player1, 0)
 
         # Then
         self.assertEqual(True, returned_boolean)
@@ -378,18 +375,16 @@ class TestReferee(unittest.TestCase):
     def test_should_add_a_third_coin_and_return_false_when_column_is_full(self):
         # Given
         referee = Referee()
-        grid_manager = GridManager()
         player1 = 'x'
-        player2 = 'o'
+        result_grid = [['o', '.', '.', '.', '.', '.', '.'],
+                       ['x', '.', '.', '.', '.', '.', '.'],
+                       ['o', '.', '.', '.', '.', '.', '.'],
+                       ['x', '.', '.', '.', '.', '.', '.'],
+                       ['o', '.', '.', '.', '.', '.', '.'],
+                       ['x', '.', '.', '.', '.', '.', '.']]
         
         # When
-        grid_manager.change_cell_state(player1, 0, 5)
-        grid_manager.change_cell_state(player2, 0, 4)
-        grid_manager.change_cell_state(player2, 0, 3)
-        grid_manager.change_cell_state(player2, 0, 2)
-        grid_manager.change_cell_state(player2, 0, 1)
-        grid_manager.change_cell_state(player2, 0, 0)
-        returned_boolean = referee.play(grid_manager, player1, 0)
+        returned_boolean = referee.play(result_grid, player1, 0)
 
         # Then
         self.assertEqual(False, returned_boolean)
@@ -397,7 +392,6 @@ class TestReferee(unittest.TestCase):
     def test_should_say_continue(self):
         # Given
         referee = Referee()
-        analyser = GridAnalyser()
         grid = [['.', '.', '.', '.', '.', '.', '.'],
                 ['.', '.', '.', '.', '.', '.', '.'],
                 ['.', '.', '.', '.', '.', '.', '.'],
@@ -412,7 +406,6 @@ class TestReferee(unittest.TestCase):
     def test_should_say_x_win(self):
         # Given
         referee = Referee()
-        analyser = GridAnalyser()
         grid = [['.', '.', '.', '.', '.', '.', '.'],
                 ['.', '.', '.', '.', '.', '.', '.'],
                 ['.', '.', '.', '.', '.', '.', '.'],
@@ -427,7 +420,6 @@ class TestReferee(unittest.TestCase):
     def test_should_say_o_win(self):
         # Given
         referee = Referee()
-        analyser = GridAnalyser()
         grid = [['.', '.', '.', '.', '.', '.', '.'],
                 ['.', '.', '.', '.', '.', '.', '.'],
                 ['.', 'o', '.', '.', '.', '.', '.'],
