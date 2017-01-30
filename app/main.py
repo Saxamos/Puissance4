@@ -129,5 +129,8 @@ class View:
 
 
 if __name__ == '__main__':
-    app = Application()
+    view = View()
+    referee = Referee()
+    grid = Grid().grid
+    app = Application(view, referee, grid)
     app.play()
